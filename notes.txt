@@ -1,0 +1,26 @@
+
+database
+	link
+		short name, full url, creator id, create time, last editor id, last edit time, last click time, num clicks
+		(later:  num clicks in last 364 days:  last7Days:map[index->count], last4x7Days, last13x28Days)
+
+ajax calls
+	checkShortName( shortName ) -> {ok/taken/badFormat}
+	saveLink( shortName, url ) -> {ok/taken/badFormat}
+	getLink( shortName ) -> linkData
+	searchLinks( keyword, field, partialMatch, maxRecords ) -> group[linkData] , done:boolean
+
+pages / panels
+	my links  (same page as search all)
+		link summary list
+			button to create new link (at top of list)
+			pulldown sort by name
+			link summary
+				short name, full url, creator, last editor, edit button (any user can edit)
+				editable in place
+	search all links 
+		input keyword/s
+		pulldown select specific field to search.  default search all fields. 
+			auto-complete when searching by creator/editor username
+		link summary list ...
+
